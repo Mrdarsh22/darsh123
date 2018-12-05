@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '$'
- 
+const prefix = 'DARSH TIRED'
 
- 
+
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Darsh tired`,"https://www.twitch.tv/dggamingbot")
+client.user.setGame(`LastCodes4Ever  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -29,14 +29,3 @@ client.user.setGame(`Darsh tired`,"https://www.twitch.tv/dggamingbot")
   console.log('')
   console.log('')
 });
- 
-client.on('message', message=> {
-    if (message.author.bot) return;
-    if (message.isMentioned(client.user))
-    {
-    message.reply("I'm here, i think!");
-    }
-});
- 
- 
-client.login(process.env.BOT_TOKEN);
