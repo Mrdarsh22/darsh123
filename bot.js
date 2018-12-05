@@ -30,6 +30,13 @@ client.user.setGame(`Darsh tired`,"https://www.twitch.tv/dggamingbot")
   console.log('')
 });
  
+client.on('message', message=> {
+    if (message.author.bot) return;
+    if (message.isMentioned(client.user))
+    {
+    message.reply("I'm here, i think!");
+    }
+});
  
  
 client.login(process.env.BOT_TOKEN);
