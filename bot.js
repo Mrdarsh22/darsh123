@@ -69,6 +69,5 @@ message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 client.login(process.env.BOT_TOKEN);
