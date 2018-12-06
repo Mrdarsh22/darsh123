@@ -136,7 +136,7 @@ client.on('message', message => {
         if(!message.guild.channels.find('name', 'report_list')) return message.channel.send('**نرجو عمل روم باسم report**').then(msg => msg.delete(5000));
     if(!name1) return message.reply('**:innocent:Ping:innocent:**').then(msg => msg.delete(3000))
         message.delete();
-    if(!reason) return message.reply('**:innocent:The Reason؟:innocent:**').then(msg => msg.delete(3000))
+    if(!reason) return message.reply('**:innocent:The Reason?:innocent:**').then(msg => msg.delete(3000))
         message.delete();
     var abod = new Discord.RichEmbed()
     .setTitle(`Report by: ${message.author.tag}`)
