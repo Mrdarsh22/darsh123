@@ -30,7 +30,6 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
 });
 
-
     client.on('message', message => {
         var prefix = "$";
         if (message.author.bot) return;
@@ -50,24 +49,39 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
        
       });
 
-
-client.on('message', message => {
-if(message.content.startsWith("$slots")) {
-let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
-let slot2 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
-let slot3 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
-let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-let we;
-if(slots1 === slots2 && slots2 === slots3) {
-we = "Win, GG."
-} else {
-we = "Lose :'("
-}
-message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
-}
-});
-
+client.on("message", message => {
+    if (message.author.bot) return;
+    
+    let command = message.content.split(" ")[0];
+    
+    if (command === "$mute") {
+          if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** you don't have 'Manage Roles permission' **").catch(console.error);
+    let user = message.mentions.users.first();
+    let modlog = client.channels.find('name', 'log');
+    let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
+    if (!muteRole) return message.reply("**i can't find 'Muted role ' **").catch(console.error);
+    if (message.mentions.users.size < 1) return message.reply('**ping the member**').catch(console.error);
+    
+    const embed = new Discord.RichEmbed()
+      .setColor(0x00AE86)
+      .setTimestamp()
+      .addField('use:', '$mute')
+      .addField('use', '$unmute')
+      .addField('muted:', `${user.username}#${user.discriminator} (${user.id})`)
+      .addField('by:', `${message.author.username}#${message.author.discriminator}`)
+     
+     if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** You dont have Manage Roles permissions **').catch(console.error);
+   
+    if (message.guild.member(user).roles.has(muteRole.id)) {
+  return message.reply("**:white_check_mark: .. The Member Muted**").catch(console.error);
+  } else {
+      message.guild.member(user).addRole(muteRole).then(() => {
+  return message.reply("**:white_check_mark: .. The Member muted (chat)**").catch(console.error);
+  });
+    }
+  
+  };
+  
+  });
 
 client.login(process.env.BOT_TOKEN);
