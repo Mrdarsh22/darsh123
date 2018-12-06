@@ -33,7 +33,7 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
 client.on('message', message => {
     var args = message.content.toLowerCase().split(' ');
     var command = args[0];
-    var prefix = '+';
+    var prefix = '$';
     var wordsSay = message.content.split(' ').slice(1).join(' ');
     
     if(command == prefix + 'say') {
