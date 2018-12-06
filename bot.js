@@ -30,8 +30,6 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
 });
 
-
-
         var prefix = "$";
     client.on('message', message => {
   if (message.author.bot) return;
