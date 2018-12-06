@@ -30,6 +30,7 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
 });
 
+
     client.on('message', message => {
         var prefix = "$";
         if (message.author.bot) return;
@@ -48,6 +49,6 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
         
        
       });
-client.login(process.env.BOT_TOKEN);
+
 
 client.login(process.env.BOT_TOKEN);
