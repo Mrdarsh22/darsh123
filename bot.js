@@ -30,7 +30,6 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
 });
 
-
 client.on('message', message => {
     var args = message.content.toLowerCase().split(' ');
     var command = args[0];
@@ -51,7 +50,5 @@ client.on('message', message => {
         message.channel.send(sayE);
     }
 });
-
-
 
 client.login(process.env.BOT_TOKEN);
