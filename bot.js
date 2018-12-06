@@ -55,12 +55,12 @@ client.on("message", message => {
     let command = message.content.split(" ")[0];
     
     if (command === "$mute") {
-          if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** you don't have 'Manage Roles permission' **").catch(console.error);
+          if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** you don't have 'Manage Roles permission !! **").catch(console.error);
     let user = message.mentions.users.first();
     let modlog = client.channels.find('name', 'log');
     let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-    if (!muteRole) return message.reply("**i can't find 'Muted role ' **").catch(console.error);
-    if (message.mentions.users.size < 1) return message.reply('**ping the member**').catch(console.error);
+    if (!muteRole) return message.reply("**i can't find 'Muted role !! ' **").catch(console.error);
+    if (message.mentions.users.size < 1) return message.reply('**:negative_squared_cross_mark: Ping The Member, That U Want To Mute Him**').catch(console.error);
     
     const embed = new Discord.RichEmbed()
       .setColor(0x00AE86)
