@@ -30,28 +30,24 @@ client.user.setGame(`DARSH SAD  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
 });
 
-client.on('message', message => {
-    var args = message.content.toLowerCase().split(' ');
-    var command = args[0];
-    var prefix = '$';
-    var wordsSay = message.content.split(' ').slice(1).join(' ');
-    
-    if(command == prefix + 'say') {
-        var sayRole = message.guild.roles.find(r => r.name === 'say'); 
-        if(!sayRole) return message.channel.send('i cant find with u `say prmt` ');
-        if(!message.member.roles.has(sayRole.id)) return message.channel.send('u should have `say prmt`');
-        if(!wordsSay) return message.channel.send(`***EX :*** ${prefix}say Hello World! `);
+    client.on('message', message => {
+        var prefix = "$";
+        if (message.author.bot) return;
+        if (!message.content.startsWith(prefix)) return;
+      
+        let command = message.content.split(" ")[0];
+        command = command.slice(prefix.length);
+      
+      
+      let args = message.content.split(" ").slice(1);
+      let x = args.join(" ")
+        if(message.content.startsWith(prefix + 'say')) {
+            message.channel.send(''+x);
+                message.delete(999)
+        }
         
-        message.delete();
-        let sayE = new Discord.RichEmbed()  
-        .setColor('RANDOM')
-        .setDescription(`**${wordsSay}**`)  
-        
-        message.channel.send(sayE);
-    }
-});
-
-client.on('ready',async () => { client.channels.find(ch => ch.id === "520228762311458816" && ch.type === 'voice').join(); });
-
+       
+      });
+client.login(process.env.BOT_TOKEN);
 
 client.login(process.env.BOT_TOKEN);
